@@ -3,16 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calcul imc</title>
-    <script src="javascript.js"></script>
+    <title>Calcule imc</title>
+    <script src="javascript.js" defer></script>
   </head>
   <body>
-    <form action="">
+    <form id="formulaire" action="">
       <label for="taille">Votre taille en centimètre. Ex : 180</label><br />
-      <input id="taille" type="text" name="taille" /><br />
+      <input
+        id="taille"
+        type="number"
+        step="1"
+        min="0"
+        max="3000"
+        name="taille"
+        placeholder="0"
+        required
+        autofocus
+      /><br />
       <label for="poids">Votre poids en Kg. Ex : 80</label><br />
-      <input id="poids" type="text" name="poids" /><br />
-      <input type="submit" value="Calculer votre IMC" />
+      <input
+        id="poids"
+        type="number"
+        step="1"
+        min="0"
+        max="300"
+        name="poids"
+        placeholder="0"
+        required
+      /><br />
+      <input id="button" type="submit" value="Calculer votre IMC" />
     </form>
   </body>
 </html>
