@@ -1,0 +1,55 @@
+body {
+    background-color: rgb(149, 203, 237);
+}
+
+h1 {
+    font-size: 30px;
+}
+.container_application {
+  background-color: rgba(248, 246, 246, 0.993);
+  margin: 15px;
+  padding: 10px;
+}
+
+.form_input {
+    margin-top: 15px;
+}
+
+.input_saisi {
+  width: 70px;
+  text-align: center;
+}
+
+.titre {
+  text-align: center;
+}
+
+.text_input {
+  text-align: center;
+}
+
+.input_user {
+  text-align: center;
+}
+
+.form_button {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.button_btn {
+  width: 200px;
+  background-color: rgb(246, 218, 79);
+  border: 0px;
+  height: 40px;
+}
+
+.affichage_imc {
+  text-align: center;
+  font-size: 3em;
+}
+
+.affichage_remarque {
+  text-align: center;
+}
