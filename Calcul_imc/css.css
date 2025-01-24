@@ -1,57 +1,60 @@
+/* fond d'écran */
 body {
     background-color: rgb(149, 203, 237);
 }
 
-h1 {
-    font-size: 30px;
-}
-.container {
+/* bloc application */
+.application {
   background-color: rgba(248, 246, 246, 0.993);
   margin-top: 1.5em;
 }
 
-.form_input {
-    margin-top: 15px;
-}
-
-.input_saisi {
-  text-align: center;
-  width: 250px;
-}
-
+/* bloc titre */
 .titre {
+    font-size: 30px;
+    text-align: center;
+}
+
+/* bloc saisi */
+.saisi {
+  margin-top: 15px;
   text-align: center;
 }
+  /* elements de saisi */
+  .saisi__label{
+    font-family: 'Times New Roman', Times, serif
+  }
 
-.text_input {
+  .saisi__input{
+    width: 223px;
+    text-align: center;
+  }
+
+/* bloc validation */
+.validation {
   text-align: center;
 }
+  /* elements de validation */
+  .validation__button{
+    background-color: rgb(246, 218, 79);
+    height: 40px;
+    margin-top: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border: 0;
+  }
 
-.input_user {
-  text-align: center;
-}
-
-.form_button {
-  margin-top: 25px;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-.button_btn {
-  margin-left: 24px;
-  background-color: rgb(246, 218, 79);
-  height: 40px;
-}
-
-.affichage_imc {
+/* bloc affichage */
+.affichage {
   text-align: center;
   font-size: 3em;
 }
 
-.affichage_remarque {
+/* bloc remarque */
+.remarque {
   text-align: center;
 }
-
 
 /* responsive */
 @media (min-width: 650px){

@@ -14,24 +14,24 @@
     <script src="javascript.js" defer></script>
   </head>
   <body>
-    <div class="container">
+    <section class="container application">
       <div class="row titre">
         <h1>Calcul d'IMC</h1>
       </div>
-      <form class="row saisi" id="formulaire" action="">
-        <div class="col-md-6 form_input">
-          <div class="row">
-            <div class="col col-md-auto ms-md-auto">
-              <div class="text_input">
-                <label for="taille">Votre taille en centimètre. Ex : 180</label>
+      <form id="formulaire" action="">
+        <div class="row saisi">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col col-md-auto ms-md-auto">
+                <label class="saisi__label" for="taille"
+                  >Votre taille en centimètre. Ex : 180</label
+                >
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col col-md-auto ms-md-auto">
-              <div class="input_user">
+            <div class="row">
+              <div class="col col-md-auto ms-md-auto">
                 <input
-                  class="input_saisi"
+                  class="saisi__input"
                   id="taille"
                   type="number"
                   step="1"
@@ -45,20 +45,18 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-6 form_input">
-          <div class="row">
-            <div class="col col-md-auto">
-              <div class="text_input">
-                <label for="poids">Votre poids en Kg. Ex : 80</label>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col col-md-auto">
+                <label class="saisi__label" for="poids"
+                  >Votre poids en Kg. Ex : 80</label
+                >
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col col-md-auto">
-              <div class="input_user">
+            <div class="row">
+              <div class="col col-md-auto">
                 <input
-                  class="input_saisi"
+                  class="saisi__input"
                   id="poids"
                   type="number"
                   step="1"
@@ -72,22 +70,21 @@
             </div>
           </div>
         </div>
-        <div class="row form_button">
+        <div class="row validation">
           <div class="col">
-            <button class="button_btn" id="button" type="submit">
+            <button class="validation__button" id="button" type="submit">
               Calculer votre IMC
             </button>
           </div>
         </div>
       </form>
-
-      <div class="row affichage_imc">
+      <div class="row affichage">
         <span id="imc">0</span>
       </div>
-      <div class="row affichage_remarque">
+      <div class="row remarque">
         <span id="imcIntitule">En attente du résultat</span>
       </div>
-    </div>
+    </section>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
