@@ -5,10 +5,9 @@ body {
 h1 {
     font-size: 30px;
 }
-.container_application {
+.container {
   background-color: rgba(248, 246, 246, 0.993);
-  margin: 15px;
-  padding: 10px;
+  margin-top: 1.5em;
 }
 
 .form_input {
@@ -16,8 +15,8 @@ h1 {
 }
 
 .input_saisi {
-  width: 70px;
   text-align: center;
+  width: 250px;
 }
 
 .titre {
@@ -39,9 +38,8 @@ h1 {
 }
 
 .button_btn {
-  width: 200px;
+  margin-left: 24px;
   background-color: rgb(246, 218, 79);
-  border: 0px;
   height: 40px;
 }
 
@@ -52,4 +50,11 @@ h1 {
 
 .affichage_remarque {
   text-align: center;
+}
+
+
+/* responsive */
+@media (min-width: 650px){
+  .container {
+    max-width: 600px;
 }
