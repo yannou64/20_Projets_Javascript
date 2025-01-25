@@ -1,39 +1,8 @@
-// mon javascript
-// My variables
-const imcTableau = [
-  {
-    imc: [0, 18.5],
-    remarque: "Maigreur",
-    color: "midnightBlue",
-  },
-  {
-    imc: [18.5, 25],
-    remarque: "Bonne santé",
-    color: "green",
-  },
-  {
-    imc: [25, 30],
-    remarque: "Surpoid",
-    color: "lightCoral",
-  },
-  {
-    imc: [30, 35],
-    remarque: "Obésité modéré",
-    color: "orange",
-  },
-  {
-    imc: [35, 40],
-    remarque: "Obésité sévère",
-    color: "red",
-  },
-  {
-    imc: [40, 100],
-    remarque: "Obésité morbide",
-    color: "purple",
-  },
-];
-// At first i stop the submit action
+import { imcTableau } from "./variables"
+import { calculIMC, initialisation } from "./fonctions";
+
 let form = document.getElementById("formulaire");
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   console.log("test")
@@ -63,17 +32,5 @@ form.addEventListener("submit", (event) => {
       imcIntitule.textContent = indicateur.remarque;
       imcIntitule.style.color = indicateur.color;
     }
-  }
-  // fonction d'initialisation des paramètres
-  function initialisation(poids, taille) {
-    poids.value = 0;
-    taille.value = 0;
-  }
-  // fonction pour calculer l'imc
-  function calculIMC(poids, taille) {
-    return (
-      (parseInt(poids.value) / parseInt(taille.value) ** 2) *
-      10000
-    ).toFixed(1);
   }
 });

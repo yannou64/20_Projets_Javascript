@@ -85,7 +85,8 @@ body {
 // bloc responsive
 */
 
-@media (min-width: 650px){
+@media (min-width: 400px){
   .container {
-    max-width: 600px;
+    max-width: 550px;
+  }
 }
