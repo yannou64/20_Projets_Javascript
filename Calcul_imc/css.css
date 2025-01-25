@@ -1,26 +1,40 @@
-/* fond d'écran */
+/*
+// fond d'écran
+*/
+
 body {
     background-color: rgb(149, 203, 237);
 }
 
-/* bloc application */
+/*
+// bloc application 
+*/
+
 .application {
   background-color: rgba(248, 246, 246, 0.993);
   margin-top: 1.5em;
 }
 
-/* bloc titre */
+/*
+// bloc titre 
+*/
+
 .titre {
     font-size: 30px;
     text-align: center;
 }
 
-/* bloc saisi */
+/*
+// bloc saisi
+*/     
+
 .saisi {
   margin-top: 15px;
   text-align: center;
 }
-  /* elements de saisi */
+
+  /* Elements de saisie */
+
   .saisi__label{
     font-family: 'Times New Roman', Times, serif
   }
@@ -30,11 +44,16 @@ body {
     text-align: center;
   }
 
-/* bloc validation */
+/*
+// bloc validation
+*/
+
 .validation {
   text-align: center;
 }
+
   /* elements de validation */
+
   .validation__button{
     background-color: rgb(246, 218, 79);
     height: 40px;
@@ -45,18 +64,27 @@ body {
     border: 0;
   }
 
-/* bloc affichage */
+/*
+// bloc affichage
+*/
+
 .affichage {
   text-align: center;
   font-size: 3em;
 }
 
-/* bloc remarque */
+/*
+// bloc remarque
+*/
+
 .remarque {
   text-align: center;
 }
 
-/* responsive */
+/*
+// bloc responsive
+*/
+
 @media (min-width: 650px){
   .container {
     max-width: 600px;
