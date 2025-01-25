@@ -8,6 +8,14 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'dist'), // Dossier pour servir les fichiers
+    },
+    port: 8080, // Port par défaut (http://localhost:8080)
+    open: true, // Ouvre automatiquement le navigateur
+    hot: true, // Active le Hot Module Replacement
+  },
   devtool: "source-map",
   mode: "development",
 };
