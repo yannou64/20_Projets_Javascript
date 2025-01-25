@@ -8,6 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
+  // webpack-dev-server
   devServer: {
     static: {
       directory: path.resolve(__dirname, 'dist'), // Dossier pour servir les fichiers
@@ -18,4 +19,22 @@ module.exports = {
   },
   devtool: "source-map",
   mode: "development",
+  // babel
+  module: {
+    rules: [
+      {
+        test: /\.(?:js|mjs|cjs)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            targets: "defaults",
+            presets: [
+              ['@babel/preset-env']
+            ]
+          }
+        }
+      }
+    ]
+  }
 };
