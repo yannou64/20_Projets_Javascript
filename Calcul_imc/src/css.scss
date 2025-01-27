@@ -8,7 +8,18 @@ $jaune: #f2d68a;
   margin-top: 1.5em;
 }
 
+/* Initialisation */
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* mon css */
 body {
+  padding: clamp(20px, 5vw, 50px) 10px 10px;
   background-color: $bleu;
   .application {
     background-color: $gris;
