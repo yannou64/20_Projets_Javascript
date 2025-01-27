@@ -1,0 +1,56 @@
+/* Variables */
+$bleu: #87ccf5;
+$gris: #edeff0;
+$jaune: #f2d68a;
+
+/* mixins */
+@mixin espace-au-dessus {
+  margin-top: 1.5em;
+}
+
+body {
+  background-color: $bleu;
+  .application {
+    background-color: $gris;
+    @include espace-au-dessus;
+    .titre {
+      font-size: 30px;
+      text-align: center;
+    }
+    .saisi {
+      @include espace-au-dessus;
+      text-align: center;
+      &__label {
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      &__input {
+        width: 223px;
+        text-align: center;
+      }
+    }
+    .validation {
+      text-align: center;
+      &__button {
+        background-color: $jaune;
+        height: 40px;
+        margin-top: 25px;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+        border: 0;
+      }
+    }
+    .affichage {
+      text-align: center;
+      font-size: 3em;
+    }
+    .remarque {
+      text-align: center;
+    }
+
+    @media (min-width: 400px) {
+      max-width: 550px;
+    }
+  }
+}

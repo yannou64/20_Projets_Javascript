@@ -1,92 +1,50 @@
-/*
-// fond d'écran
-*/
-
+/* Variables */
+/* mixins */
 body {
-    background-color: rgb(149, 203, 237);
+  background-color: #87ccf5;
 }
-
-/*
-// bloc application 
-*/
-
-.application {
-  background-color: rgba(248, 246, 246, 0.993);
+body .application {
+  background-color: #edeff0;
   margin-top: 1.5em;
 }
-
-/*
-// bloc titre 
-*/
-
-.titre {
-    font-size: 30px;
-    text-align: center;
-}
-
-/*
-// bloc saisi
-*/     
-
-.saisi {
-  margin-top: 15px;
+body .application .titre {
+  font-size: 30px;
   text-align: center;
 }
-
-  /* Elements de saisie */
-
-  .saisi__label{
-    font-family: 'Times New Roman', Times, serif
-  }
-
-  .saisi__input{
-    width: 223px;
-    text-align: center;
-  }
-
-/*
-// bloc validation
-*/
-
-.validation {
+body .application .saisi {
+  margin-top: 1.5em;
   text-align: center;
 }
-
-  /* elements de validation */
-
-  .validation__button{
-    background-color: rgb(246, 218, 79);
-    height: 40px;
-    margin-top: 25px;
-    padding-left: 15px;
-    padding-right: 15px;
-    text-align: center;
-    border: 0;
-  }
-
-/*
-// bloc affichage
-*/
-
-.affichage {
+body .application .saisi__label {
+  font-family: "Times New Roman", Times, serif;
+}
+body .application .saisi__input {
+  width: 223px;
+  text-align: center;
+}
+body .application .validation {
+  text-align: center;
+}
+body .application .validation__button {
+  background-color: #f2d68a;
+  height: 40px;
+  margin-top: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  border: 0;
+}
+body .application .affichage {
   text-align: center;
   font-size: 3em;
 }
-
-/*
-// bloc remarque
-*/
-
-.remarque {
+body .application .remarque {
   text-align: center;
 }
-
-/*
-// bloc responsive
-*/
-
-@media (min-width: 400px){
-  .container {
+@media (min-width: 400px) {
+  body .application {
     max-width: 550px;
   }
 }
+
+/*# sourceMappingURL=css.css.map */
