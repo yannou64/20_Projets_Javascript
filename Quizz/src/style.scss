@@ -1,0 +1,8 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+// Mes variables
+$grisClaire: #fbfafa;
+$grisFonce: #808080;
+
+body {
+  background: linear-gradient(to right, $grisClaire, $grisFonce);
+}
