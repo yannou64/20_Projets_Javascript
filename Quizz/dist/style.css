@@ -1,6 +1,11 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
-body {
-  background: linear-gradient(to right, #fbfafa, #808080);
+.bloc_question {
+  background-color: rgb(236, 236, 236);
+  margin: 20px;
+  padding: 20px;
+}
+.bloc_question__question {
+  padding-bottom: 10px;
+  font-weight: bolder;
 }
 
 /*# sourceMappingURL=style.css.map */
