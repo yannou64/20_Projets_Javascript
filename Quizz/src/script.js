@@ -1,4 +1,4 @@
-import { createQuestionnaire, calculResult } from "./fonctions"
+import { createQuestionnaire, calculResult, afficheResult } from "./fonctions"
 
 // Création du questionnaire
 createQuestionnaire();
