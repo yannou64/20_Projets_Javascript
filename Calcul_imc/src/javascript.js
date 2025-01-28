@@ -1,11 +1,10 @@
-import { imcTableau } from "./variables"
+import { imcTableau } from "./variables";
 import { calculIMC, initialisation } from "./fonctions";
 
 let form = document.getElementById("formulaire");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log("test")
   // On récupère nos éléments à consulter et modifier dans le dom
   const poids = document.getElementById("poids");
   const taille = document.getElementById("taille");

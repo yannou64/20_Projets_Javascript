@@ -1,7 +1,9 @@
 /* Variables */
 $bleu: #87ccf5;
+$bleu-fonce: #019bf4;
 $gris: #edeff0;
 $jaune: #f2d68a;
+$jaune_fonce: mix($jaune, black, 85%);
 
 /* mixins */
 @mixin espace-au-dessus {
@@ -20,10 +22,12 @@ $jaune: #f2d68a;
 /* mon css */
 body {
   padding: clamp(20px, 5vw, 50px) 10px 10px;
-  background-color: $bleu;
+  background: linear-gradient(to right, $bleu, $bleu-fonce);
   .application {
     background-color: $gris;
-    @include espace-au-dessus;
+    border-radius: 10px;
+    box-shadow: 5px 5px 6px gray;
+    padding: 20px;
     .titre {
       font-size: 30px;
       text-align: center;
@@ -50,6 +54,11 @@ body {
         padding-right: 15px;
         text-align: center;
         border: 0;
+        border-radius: 3px;
+        box-shadow: 1px 1px 2px black;
+        &:hover {
+          background-color: $jaune_fonce;
+        }
       }
     }
     .affichage {
