@@ -1,42 +1,104 @@
 // Mes variables
+$colorQuestion: #f1f1f1;
+$colorBackGround: #dae5f9;
+$colorGoodAnswer: linear-gradient(to right, #A8FF79, #79FFD5);
+$colorBadAnswer: linear-gradient(to right, #F5577B, #FD674D);
+// Mes Mixins
+@mixin boxShadow {
+    box-shadow: 1px 3px 5px rgb(201, 201, 201);
+    border-radius: 5px;
+}
 
 // Mes styles
 body {
-  background-color: #dae5f9;
+  background-color: $colorBackGround;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;;
 }
 
 .titre {
     font-weight: 100;
+    font-size: 2em;
+    margin: 20px;
   span {
-    font-weight: 900;
+    font-weight: 500;
   }
 }
 
 .questionnaire {
-  &__group {
+    &__group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
     &__bloc {
-      .question {
-      }
-      &--good {
-        background-color: green;
-      }
-      &--bad {
-        background-color: red;;
-      }
-      .propositions {
-        .proposition {
+        display :flex;
+        flex-direction: column;
+        align-items: flex-start;
+        @include boxShadow;
+        background-color: $colorQuestion;
+        width: 500px;
+        padding: 20px;
+        margin-top: 20px;
+        
+        .question {
+            text-align: left;
+            margin-bottom: 10px;
+            font-weight: 400;
         }
-      }
+        
+        &--good {
+            background: $colorGoodAnswer;
+        }
+        
+        &--bad {
+            background: $colorBadAnswer;
+        }
+
+        .propositions {
+            .proposition {
+                text-align: left;
+            }
+        }
     }
   }
+
   &__validation {
+    margin: 20px;
+    text-align: center;
+    button {
+        height: 40px;
+        width: 200px;
+        border: 0;
+        @include boxShadow;
+        background-color: white;
+    }
   }
 }
 
 .results {
+    width: 500px;
+    background-color: white;
+    @include boxShadow;
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   &__encouragement {
+    span {
+        font-weight: 500;
+    }
   }
   &__score {
+    margin: 10px 0px;
+    span {
+        font-weight: 500;
+    }
   }
   &__advice {
   }

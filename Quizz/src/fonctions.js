@@ -13,15 +13,15 @@ export const createQuestionnaire = () => {
         <div class="propositions">
             <div class="proposition">
                 <input type="radio" id="question${index}-${0}" name="${index}" value="${question.propositions[0]}">
-                <label for="${question.propositions[0]}" >${question.propositions[0]}</label>    
+                <label for="question${index}-${0}" >${question.propositions[0]}</label>    
             </div>
             <div class="proposition">
                 <input type="radio" id="question${index}-${1}" name="${index}" value="${question.propositions[1]}">
-                <label for="${question.propositions[1]}" >${question.propositions[1]}</label>    
+                <label for="question${index}-${1}" >${question.propositions[1]}</label>    
             </div>
             <div class="proposition">   
                 <input type="radio" id="question${index}-${2}" name="${index}" value="${question.propositions[2]}">
-                <label for="${question.propositions[2]}">${question.propositions[2]}</label>
+                <label for="question${index}-${2}">${question.propositions[2]}</label>
             </div>
         </div>
             `;
@@ -36,6 +36,12 @@ export const calculResult = () => {
     ".questionnaire__group__bloc"
   );
   questionnaire.forEach((question, index) => {
+    if(question.classList.contains("questionnaire__group__bloc--good")){
+      question.classList.remove("questionnaire__group__bloc--good");
+    }
+    if(question.classList.contains("questionnaire__group__bloc--bad")){
+      question.classList.remove("questionnaire__group__bloc--bad");
+    }
     const reponse = document.querySelector(`input[name="${index}"]:checked`);
     if (reponse) {
       if (reponse.value === questions[index].reponse) {
@@ -56,7 +62,7 @@ export const afficheResult = (score) => {
   encouragement.innerHTML = `${results[score].encouragement}`;
 
   const afficheScore = document.querySelector(".results__score");
-  afficheScore.innerHTML = `Score : ${score}/${questions.length}`;
+  afficheScore.innerHTML = `<span>Score : ${score}/${questions.length}<span>`;
 
   const advice = document.querySelector(".results__advice");
   advice.innerHTML = `${results[score].advice}`;

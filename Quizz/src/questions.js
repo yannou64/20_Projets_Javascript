@@ -54,7 +54,7 @@ const results = [
   },
   {
     score: 5,
-    encouragement: "Quelle culuture !",
+    encouragement: "Quelle culture !",
     advice: "Bravo c'est un sans faute"
   },
 ]
