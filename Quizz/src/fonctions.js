@@ -40,12 +40,12 @@ export const calculResult = () => {
     if (reponse) {
       if (reponse.value === questions[index].reponse) {
         score = score + 1;
-        question.style = "background-color: green;";
+        question.classList.add("questionnaire__group__bloc--good");
       } else {
-        question.style = "background-color: red;";
+        question.classList.add("questionnaire__group__bloc--bad");
       }
     } else {
-      question.style = "background-color: red;";
+      question.classList.add("questionnaire__group__bloc--bad");
     }
   });
   return score;
