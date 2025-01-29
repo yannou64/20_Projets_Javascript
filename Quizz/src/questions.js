@@ -26,37 +26,39 @@ const questions = [
   }
 ];
 
+const emojis = ["✔️", "✨", "👀", "😭", "👎", "☑"];
+
 const results = [
   {
     score: 0,
-    encouragement: "Peut mieux faire",
+    encouragement: "👎 Peut mieux faire 👎",
     advice: "Retentez une autre réponse dans la case rouge, puis revalidez !"
   },
   {
     score: 1,
-    encouragement: "Peut mieux faire",
+    encouragement: "😭 Peut mieux faire 😭",
     advice: "Retentez une autre réponse dans la case rouge, puis revalidez !"
   },
   {
     score: 2,
-    encouragement: "Il reste quelques erreurs",
+    encouragement: "👀 Il reste quelques erreurs 😭",
     advice: "Retentez une autre réponse dans la case rouge, puis revalidez !"
   },
   {
     score: 3,
-    encouragement: "Encore un effort",
+    encouragement: "✨ Encore un effort 👀",
     advice: "Retentez une autre réponse dans la case rouge, puis revalidez !"
   },
   {
     score: 4,
-    encouragement: "Vous y êtes presque",
+    encouragement: "✨ Vous y êtes presque ✨",
     advice: "Retentez une autre réponse dans la case rouge, puis revalidez !"
   },
   {
     score: 5,
     encouragement: "Quelle culture !",
-    advice: "Bravo c'est un sans faute"
+    advice: "✔️ Bravo c'est un sans faute ✔️"
   },
 ]
 
-export { questions, results };
+export { questions, results};

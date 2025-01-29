@@ -1,23 +1,34 @@
+//////////////////////////
 // Mes variables
+//////////////////////////
 $colorQuestion: #f1f1f1;
 $colorBackGround: #dae5f9;
 $colorGoodAnswer: linear-gradient(to right, #A8FF79, #79FFD5);
 $colorBadAnswer: linear-gradient(to right, #F5577B, #FD674D);
+$font-weight: 500;
+
+//////////////////////////
 // Mes Mixins
+//////////////////////////
 @mixin boxShadow {
     box-shadow: 1px 3px 5px rgb(201, 201, 201);
     border-radius: 5px;
 }
+@mixin alignement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+//////////////////////////
 // Mes styles
+//////////////////////////
 body {
   background-color: $colorBackGround;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;;
+    @include alignement;
 }
 
 .titre {
@@ -25,15 +36,13 @@ body {
     font-size: 2em;
     margin: 20px;
   span {
-    font-weight: 500;
+    font-weight: $font-weight;
   }
 }
 
 .questionnaire {
     &__group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include alignement;
     
     &__bloc {
         display :flex;
@@ -41,14 +50,14 @@ body {
         align-items: flex-start;
         @include boxShadow;
         background-color: $colorQuestion;
-        width: 500px;
         padding: 20px;
         margin-top: 20px;
+        width: 100%;
         
         .question {
             text-align: left;
             margin-bottom: 10px;
-            font-weight: 400;
+            font-weight: $font-weight;
         }
         
         &--good {
@@ -63,6 +72,9 @@ body {
             .proposition {
                 text-align: left;
             }
+            input {
+                margin-right: 10px;
+            } 
         }
     }
   }
@@ -81,30 +93,30 @@ body {
 }
 
 .results {
-    width: 500px;
+    width: 100%;
     background-color: white;
     @include boxShadow;
     margin-bottom: 20px;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include alignement;
   &__encouragement {
     span {
-        font-weight: 500;
+        font-weight: $font-weight;
     }
   }
   &__score {
     margin: 10px 0px;
     span {
-        font-weight: 500;
+        font-weight: $font-weight;
     }
   }
   &__advice {
   }
 }
 
+//////////////////////////
 // sélecteur pour les fonts
+//////////////////////////
 .fredoka {
     font-family: "Fredoka", serif;
     font-optical-sizing: auto;

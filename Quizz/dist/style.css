@@ -29,14 +29,14 @@ body {
   box-shadow: 1px 3px 5px rgb(201, 201, 201);
   border-radius: 5px;
   background-color: #f1f1f1;
-  width: 500px;
   padding: 20px;
   margin-top: 20px;
+  width: 100%;
 }
 .questionnaire__group__bloc .question {
   text-align: left;
   margin-bottom: 10px;
-  font-weight: 400;
+  font-weight: 500;
 }
 .questionnaire__group__bloc--good {
   background: linear-gradient(to right, #A8FF79, #79FFD5);
@@ -46,6 +46,9 @@ body {
 }
 .questionnaire__group__bloc .propositions .proposition {
   text-align: left;
+}
+.questionnaire__group__bloc .propositions input {
+  margin-right: 10px;
 }
 .questionnaire__validation {
   margin: 20px;
@@ -61,7 +64,7 @@ body {
 }
 
 .results {
-  width: 500px;
+  width: 100%;
   background-color: white;
   box-shadow: 1px 3px 5px rgb(201, 201, 201);
   border-radius: 5px;

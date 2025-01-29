@@ -1,5 +1,7 @@
 import { questions, results } from "./questions.js";
 
+
+//// Fonction pour créer le questionnaire
 export const createQuestionnaire = () => {
   const questionnaire__group = document.querySelector(".questionnaire__group");
   questions.forEach((question, index) => {
@@ -30,6 +32,7 @@ export const createQuestionnaire = () => {
   });
 };
 
+//// Fonction pour calculer le score , retourne le score
 export const calculResult = () => {
   let score = 0;
   const questionnaire = document.querySelectorAll(
@@ -57,6 +60,7 @@ export const calculResult = () => {
   return score;
 };
 
+//// Fonction pour afficher le résultat
 export const afficheResult = (score) => {
   const encouragement = document.querySelector(".results__encouragement");
   encouragement.innerHTML = `${results[score].encouragement}`;
