@@ -1,51 +1,40 @@
 import { questions, results } from "./questions.js";
 
 export const createQuestionnaire = () => {
-  const question_group = document.querySelector(".question_group");
+  const questionnaire__group = document.querySelector(".questionnaire__group");
   questions.forEach((question, index) => {
     {
       const conteneur = document.createElement("div");
+      conteneur.classList.add("questionnaire__group__bloc");
       conteneur.innerHTML = `
-                <div class="bloc_question">
-                    <div class="row bloc_question__question"> 
-                        <span>${question.question}</span>
-                    </div>
-                    <div class="propositions">
-                        <div class="row proposition">
-                            <label for="${question.propositions[0]}" >${
-        question.propositions[0]
-      }</label>
-                            <input type="radio" id="question${index}-${0}" name="${index}" value="${
-        question.propositions[0]
-      }">
-                        </div>
-                        <div class="row proposition">
-                            <label for="${question.propositions[1]}" >${
-        question.propositions[1]
-      }</label>
-                            <input type="radio" id="question${index}-${1}" name="${index}" value="${
-        question.propositions[1]
-      }">
-                        </div>
-                        <div class="row proposition">   
-                            <label for="${question.propositions[2]}">${
-        question.propositions[2]
-      }</label>
-                            <input type="radio" id="question${index}-${2}" name="${index}" value="${
-        question.propositions[2]
-      }">
-                        </div>
-                    </div>
-                </div>
+        <div class="question"> 
+            <span>${question.question}</span>
+        </div>
+        <div class="propositions">
+            <div class="proposition">
+                <input type="radio" id="question${index}-${0}" name="${index}" value="${question.propositions[0]}">
+                <label for="${question.propositions[0]}" >${question.propositions[0]}</label>    
+            </div>
+            <div class="proposition">
+                <input type="radio" id="question${index}-${1}" name="${index}" value="${question.propositions[1]}">
+                <label for="${question.propositions[1]}" >${question.propositions[1]}</label>    
+            </div>
+            <div class="proposition">   
+                <input type="radio" id="question${index}-${2}" name="${index}" value="${question.propositions[2]}">
+                <label for="${question.propositions[2]}">${question.propositions[2]}</label>
+            </div>
+        </div>
             `;
-      question_group.appendChild(conteneur);
+      questionnaire__group.appendChild(conteneur);
     }
   });
 };
 
 export const calculResult = () => {
   let score = 0;
-  const questionnaire = document.querySelectorAll(".bloc_question");
+  const questionnaire = document.querySelectorAll(
+    ".questionnaire__group__bloc"
+  );
   questionnaire.forEach((question, index) => {
     const reponse = document.querySelector(`input[name="${index}"]:checked`);
     if (reponse) {
@@ -53,10 +42,10 @@ export const calculResult = () => {
         score = score + 1;
         question.style = "background-color: green;";
       } else {
-         question.style = "background-color: red;"
+        question.style = "background-color: red;";
       }
     } else {
-        question.style = "background-color: red;"
+      question.style = "background-color: red;";
     }
   });
   return score;
@@ -67,9 +56,8 @@ export const afficheResult = (score) => {
   encouragement.innerHTML = `${results[score].encouragement}`;
 
   const afficheScore = document.querySelector(".results__score");
-  afficheScore.innerHTML = `Score : ${score}/${questions.length}`
+  afficheScore.innerHTML = `Score : ${score}/${questions.length}`;
 
   const advice = document.querySelector(".results__advice");
-  advice.innerHTML = `${results[score].advice}`
+  advice.innerHTML = `${results[score].advice}`;
 };
-

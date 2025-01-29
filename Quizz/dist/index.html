@@ -9,27 +9,32 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous" defer></script>
     <script src="bundle.js" defer></script>
   </head>
+
   <body>
-    <div class="container">
-        <div class="row titre">
+    <main class="">
+
+        <section class="titre ">
             <h1><span>Quizz</span> Culture générale.</h1>
-        </div>
-        <form>
-            <div class="row question_group">
+        </section>
+
+        <form class="questionnaire">
+            <div class="questionnaire__group">
             </div>
-            <div class="row validation">
-                <button class="btn btn-primary">Valider</button>
+            <div class="questionnaire__validation">
+                <button>Valider</button>
             </div>
         </form>
-        <div class="row results">
-            <div class="row results__encouragement">
+
+        <section class="results">
+            <div class="results__encouragement">
                 <div>
                     Cliquez sur <span>valider</span> pour voir les <span>résultats</span>.
                 </div>
             </div>
-            <div class="row results__score"></div>
-            <div class="row results__advice"></div>
-        </div>
-    </div>
+            <div class="results__score"></div>
+            <div class="results__advice"></div>
+        </section>
+
+    </main>
   </body>
 </html>
