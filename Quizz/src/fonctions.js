@@ -39,12 +39,7 @@ export const calculResult = () => {
     ".questionnaire__group__bloc"
   );
   questionnaire.forEach((question, index) => {
-    if(question.classList.contains("questionnaire__group__bloc--good")){
-      question.classList.remove("questionnaire__group__bloc--good");
-    }
-    if(question.classList.contains("questionnaire__group__bloc--bad")){
-      question.classList.remove("questionnaire__group__bloc--bad");
-    }
+    ColorInit(question)
     const reponse = document.querySelector(`input[name="${index}"]:checked`);
     if (reponse) {
       if (reponse.value === questions[index].reponse) {
@@ -59,6 +54,11 @@ export const calculResult = () => {
   });
   return score;
 };
+
+function ColorInit(question) {
+  question.classList.remove("questionnaire__group__bloc--good");
+  question.classList.remove("questionnaire__group__bloc--bad");
+}
 
 //// Fonction pour afficher le résultat
 export const afficheResult = (score) => {
