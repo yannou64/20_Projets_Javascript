@@ -10,6 +10,16 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/apiWiki.js":
+/*!************************!*\
+  !*** ./src/apiWiki.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   searchResults: () => (/* binding */ searchResults)\n/* harmony export */ });\nasync function searchResults(toSearch){\n  try {\n    return resultatToSend(toSearch)\n  } \n  catch (error) {\n    console.log(\"erreur ! = \" + error);\n  }\n};\n\nasync function resultatToSend(toSearch){\n    const response = await fetch(\n        `https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=20&srsearch=${toSearch}`\n    );\n    const data = await response.json()\n    return data.query.search\n}\n\n\n\n\n//# sourceURL=webpack://wiki/./src/apiWiki.js?");
+
+/***/ }),
+
 /***/ "./src/logo.js":
 /*!*********************!*\
   !*** ./src/logo.js ***!
@@ -26,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _logo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logo.js */ \"./src/logo.js\");\n\n\nconst logo = document.querySelector(\".logo\");\nconsole.log(logo)\nlogo.appendChild(_logo_js__WEBPACK_IMPORTED_MODULE_0__.img_logo);\n\nconst search = document.querySelector(\".search\")\n\n\n//# sourceURL=webpack://wiki/./src/script.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _logo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logo.js */ \"./src/logo.js\");\n/* harmony import */ var _apiWiki_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./apiWiki.js */ \"./src/apiWiki.js\");\n\n\n\n// exercise to insert an asset\nconst logo = document.querySelector(\".logo\");\nlogo.appendChild(_logo_js__WEBPACK_IMPORTED_MODULE_0__.img_logo);\n\n// cancel refresh submit\nconst form = document.querySelector(\"form\")\nform.addEventListener(\"submit\", (event) => {\n    event.preventDefault()\n})\n\n// \"Enter\" action on input\nconst search = document.querySelector(\".search\")\nsearch.addEventListener(\"keydown\", async (event) => {\n    if (event.key === \"Enter\"){\n        const results = await (0,_apiWiki_js__WEBPACK_IMPORTED_MODULE_1__.searchResults)(event.target.value)\n        console.log(results)\n    }\n})\n\n//# sourceURL=webpack://wiki/./src/script.js?");
 
 /***/ }),
 
