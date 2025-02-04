@@ -1,11 +1,3 @@
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
@@ -16,7 +8,69 @@
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   searchResults: () => (/* binding */ searchResults)\n/* harmony export */ });\nasync function searchResults(toSearch){\n  try {\n    return resultatToSend(toSearch)\n  } \n  catch (error) {\n    console.log(\"erreur ! = \" + error);\n  }\n};\n\nasync function resultatToSend(toSearch){\n    const response = await fetch(\n        `https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=20&srsearch=${toSearch}`\n    );\n    const data = await response.json()\n    return data.query.search\n}\n\n\n\n\n//# sourceURL=webpack://wiki/./src/apiWiki.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   searchResults: () => (/* binding */ searchResults)
+/* harmony export */ });
+/* harmony import */ var _loader_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./loader.js */ "./src/loader.js");
+
+
+
+function searchResults(toSearch){
+  try {
+    return resultatToSend(toSearch)
+  } 
+  catch (error) {
+    console.log("erreur ! = " + error);
+  }
+};
+
+async function resultatToSend(toSearch){
+    loader.charge
+    const response = await fetch(
+        `https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=20&srsearch=${toSearch}`
+    );
+    const data = await response.json()
+    return data.query.search
+}
+
+class loader {
+    charge(){
+        const form_loader = document.querySelector(".form__loader")
+        form_loader.appendChild = _loader_js__WEBPACK_IMPORTED_MODULE_0__.image_load
+    }
+    uncharge(){
+        const form_loader = document.querySelector(".form__loader")
+        form_loader.removeChild()
+    }
+}
+
+
+
+
+/***/ }),
+
+/***/ "./src/loader.js":
+/*!***********************!*\
+  !*** ./src/loader.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   image_load: () => (/* binding */ image_load)
+/* harmony export */ });
+/* harmony import */ var _assets_loader_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/loader.png */ "./src/assets/loader.png");
+
+
+const image_load = document.createElement("img");
+image_load.src = _assets_loader_png__WEBPACK_IMPORTED_MODULE_0__;
+image_load.alt = "loader";
+image_load.width = 50;
+image_load.height = 50;
+
+
+
 
 /***/ }),
 
@@ -26,17 +80,31 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   img_logo: () => (/* binding */ img_logo)\n/* harmony export */ });\n/* harmony import */ var _assets_logo_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/logo.png */ \"./src/assets/logo.png\");\n\n\nconst img_logo = document.createElement(\"img\");\nimg_logo.src = _assets_logo_png__WEBPACK_IMPORTED_MODULE_0__;\nimg_logo.alt = \"logo\"\nimg_logo.width = \"100\";\nimg_logo.height = \"100\";\n\n\n\n\n//# sourceURL=webpack://wiki/./src/logo.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   img_logo: () => (/* binding */ img_logo)
+/* harmony export */ });
+/* harmony import */ var _assets_logo_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/logo.png */ "./src/assets/logo.png");
+
+
+const img_logo = document.createElement("img");
+img_logo.src = _assets_logo_png__WEBPACK_IMPORTED_MODULE_0__;
+img_logo.alt = "logo"
+img_logo.width = "100";
+img_logo.height = "100";
+
+
+
 
 /***/ }),
 
-/***/ "./src/script.js":
-/*!***********************!*\
-  !*** ./src/script.js ***!
-  \***********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./src/assets/loader.png":
+/*!*******************************!*\
+  !*** ./src/assets/loader.png ***!
+  \*******************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _logo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logo.js */ \"./src/logo.js\");\n/* harmony import */ var _apiWiki_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./apiWiki.js */ \"./src/apiWiki.js\");\n\n\n\n// exercise to insert an asset\nconst logo = document.querySelector(\".logo\");\nlogo.appendChild(_logo_js__WEBPACK_IMPORTED_MODULE_0__.img_logo);\n\n// cancel refresh submit\nconst form = document.querySelector(\"form\")\nform.addEventListener(\"submit\", (event) => {\n    event.preventDefault()\n})\n\n// \"Enter\" action on input\nconst search = document.querySelector(\".search\")\nsearch.addEventListener(\"keydown\", async (event) => {\n    if (event.key === \"Enter\"){\n        const results = await (0,_apiWiki_js__WEBPACK_IMPORTED_MODULE_1__.searchResults)(event.target.value)\n        console.log(results)\n    }\n})\n\n//# sourceURL=webpack://wiki/./src/script.js?");
+module.exports = __webpack_require__.p + "98cb0071c3ddf12a5f2f.png";
 
 /***/ }),
 
@@ -46,7 +114,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _log
   \*****************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("module.exports = __webpack_require__.p + \"a77c82699668181e61ef.png\";\n\n//# sourceURL=webpack://wiki/./src/assets/logo.png?");
+module.exports = __webpack_require__.p + "a77c82699668181e61ef.png";
 
 /***/ })
 
@@ -141,11 +209,44 @@ eval("module.exports = __webpack_require__.p + \"a77c82699668181e61ef.png\";\n\n
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/script.js");
-/******/ 	
+var __webpack_exports__ = {};
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
+(() => {
+/*!***********************!*\
+  !*** ./src/script.js ***!
+  \***********************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _logo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logo.js */ "./src/logo.js");
+/* harmony import */ var _apiWiki_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./apiWiki.js */ "./src/apiWiki.js");
+
+
+
+const a = 3
+const b = 6
+const c = a + b
+
+
+// exercise to insert an asset with webpack
+const logo = document.querySelector(".logo");
+logo.appendChild(_logo_js__WEBPACK_IMPORTED_MODULE_0__.img_logo);
+
+// cancel submit
+const form = document.querySelector("form")
+form.addEventListener("submit", (event) => {
+    event.preventDefault()
+})
+
+// "Enter" action on input
+const search = document.querySelector(".form__search")
+
+search.addEventListener("keydown", async (event) => {
+    if (event.key === "Enter"){
+        const results = await (0,_apiWiki_js__WEBPACK_IMPORTED_MODULE_1__.searchResults)(event.target.value)
+        console.log(results)
+    }
+})
+})();
+
 /******/ })()
 ;
+//# sourceMappingURL=bundle.js.map
