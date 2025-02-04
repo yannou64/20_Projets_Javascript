@@ -26,7 +26,6 @@ function searchResults(toSearch){
 };
 
 async function resultatToSend(toSearch){
-    loader.charge
     const response = await fetch(
         `https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=20&srsearch=${toSearch}`
     );
@@ -34,17 +33,45 @@ async function resultatToSend(toSearch){
     return data.query.search
 }
 
-class loader {
-    charge(){
-        const form_loader = document.querySelector(".form__loader")
-        form_loader.appendChild = _loader_js__WEBPACK_IMPORTED_MODULE_0__.image_load
+
+
+
+/***/ }),
+
+/***/ "./src/article.js":
+/*!************************!*\
+  !*** ./src/article.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Article: () => (/* binding */ Article)
+/* harmony export */ });
+class Article {
+    constructor(src){
+        this.title = src.title
+        this.pageid = src.pageid
+        this.size = src.size
+        this.snippet = src.snippet
+        this.timestamp = src.timestamp
+        this.wordcount = src.wordcount 
+        this.article_element = ""
+        this.article_presentation_html()     
     }
-    uncharge(){
-        const form_loader = document.querySelector(".form__loader")
-        form_loader.removeChild()
+
+    article_presentation_html(){
+        this.article_element = document.createElement("div")
+        this.article_element.innerHTML = `
+            <h3>${this.title}</h3>
+            <div>${this.pageid} </div>
+            <div>${this.size} </div>
+            <div>${this.snippet} </div>
+            <div>${this.timestamp} </div>
+            <div>${this.wordcount} </div>
+        `
     }
 }
-
 
 
 
@@ -58,7 +85,7 @@ class loader {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   image_load: () => (/* binding */ image_load)
+/* harmony export */   Loader: () => (/* binding */ Loader)
 /* harmony export */ });
 /* harmony import */ var _assets_loader_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/loader.png */ "./src/assets/loader.png");
 
@@ -66,8 +93,26 @@ __webpack_require__.r(__webpack_exports__);
 const image_load = document.createElement("img");
 image_load.src = _assets_loader_png__WEBPACK_IMPORTED_MODULE_0__;
 image_load.alt = "loader";
-image_load.width = 50;
-image_load.height = 50;
+image_load.width = 25;
+image_load.height = 25;
+class Loader {
+    image = image_load
+
+    charge(){
+        const form_loader = document.querySelector(".form__loader")
+        form_loader.appendChild(this.image) 
+    }
+    uncharge() {
+        const form_loader = document.querySelector(".form__loader");
+        if (form_loader && form_loader.contains(this.image)) {
+            setTimeout(() => {
+                form_loader.removeChild(this.image);
+            }, 250); // ⏳ Attente de 2 secondes avant suppression
+        } else {
+            console.error("L'image n'est pas présente dans .form__loader !");
+        }
+    }
+}
 
 
 
@@ -157,18 +202,6 @@ module.exports = __webpack_require__.p + "a77c82699668181e61ef.png";
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -187,25 +220,7 @@ module.exports = __webpack_require__.p + "a77c82699668181e61ef.png";
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		var scriptUrl;
-/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
-/******/ 		var document = __webpack_require__.g.document;
-/******/ 		if (!scriptUrl && document) {
-/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
-/******/ 				scriptUrl = document.currentScript.src;
-/******/ 			if (!scriptUrl) {
-/******/ 				var scripts = document.getElementsByTagName("script");
-/******/ 				if(scripts.length) {
-/******/ 					var i = scripts.length - 1;
-/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
-/******/ 				}
-/******/ 			}
-/******/ 		}
-/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
-/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
-/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
-/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
-/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 		__webpack_require__.p = "/";
 /******/ 	})();
 /******/ 	
 /************************************************************************/
@@ -218,17 +233,16 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _logo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logo.js */ "./src/logo.js");
 /* harmony import */ var _apiWiki_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./apiWiki.js */ "./src/apiWiki.js");
+/* harmony import */ var _loader_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./loader.js */ "./src/loader.js");
+/* harmony import */ var _article_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./article.js */ "./src/article.js");
 
 
 
-const a = 3
-const b = 6
-const c = a + b
 
 
-// exercise to insert an asset with webpack
-const logo = document.querySelector(".logo");
-logo.appendChild(_logo_js__WEBPACK_IMPORTED_MODULE_0__.img_logo);
+/////////////
+//  code dynamique 
+////////////
 
 // cancel submit
 const form = document.querySelector("form")
@@ -240,11 +254,34 @@ form.addEventListener("submit", (event) => {
 const search = document.querySelector(".form__search")
 
 search.addEventListener("keydown", async (event) => {
-    if (event.key === "Enter"){
-        const results = await (0,_apiWiki_js__WEBPACK_IMPORTED_MODULE_1__.searchResults)(event.target.value)
-        console.log(results)
+    if (event.key === "Enter" && event.value != ""){
+        const isWaiting = new _loader_js__WEBPACK_IMPORTED_MODULE_2__.Loader
+        isWaiting.charge()
+        showResults(event)
+        isWaiting.uncharge()
     }
 })
+
+/////////////
+//  fonctions 
+////////////
+
+async function showResults(event){
+    const results = await (0,_apiWiki_js__WEBPACK_IMPORTED_MODULE_1__.searchResults)(event.target.value)
+    const article_element = document.querySelector("article")
+    for (const result of results){
+        const article = new _article_js__WEBPACK_IMPORTED_MODULE_3__.Article(result)
+        article_element.appendChild(article.article_element)
+        
+    }
+}
+
+/////////////
+//  code statique 
+////////////
+const logo = document.querySelector(".logo");
+logo.appendChild(_logo_js__WEBPACK_IMPORTED_MODULE_0__.img_logo);
+
 })();
 
 /******/ })()
