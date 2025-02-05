@@ -11,14 +11,12 @@ class Article {
     }
 
     article_presentation_html(){
-        this.article_element = document.createElement("div")
+        this.article_element = document.createElement("article")
+        this.article_element.classList.add("quicksand")
         this.article_element.innerHTML = `
-            <h3>${this.title}</h3>
-            <div>${this.pageid} </div>
-            <div>${this.size} </div>
-            <div>${this.snippet} </div>
-            <div>${this.timestamp} </div>
-            <div>${this.wordcount} </div>
+            <span class="article__titre">${this.title}</span>
+            <a class="article__link" href="https://en.wikipedia.org/?curid=${this.pageid}">https://en.wikipedia.org/?curid=${this.pageid}</a>
+            <span class="article__resume">${this.snippet} </span>
         `
     }
 }

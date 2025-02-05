@@ -18,6 +18,7 @@ const search = document.querySelector(".form__search")
 
 search.addEventListener("keydown", async (event) => {
     if (event.key === "Enter" && event.value != ""){
+        initialisationResults()
         const isWaiting = new Loader
         isWaiting.charge()
         showResults(event)
@@ -31,12 +32,17 @@ search.addEventListener("keydown", async (event) => {
 
 async function showResults(event){
     const results = await searchResults(event.target.value)
-    const article_element = document.querySelector("article")
+    const article_element = document.querySelector(".results")
     for (const result of results){
         const article = new Article(result)
         article_element.appendChild(article.article_element)
         
     }
+}
+
+function initialisationResults(){
+    const results = document.querySelector(".results")
+    results.innerHTML = ""
 }
 
 /////////////

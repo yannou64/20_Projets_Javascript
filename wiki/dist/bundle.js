@@ -61,14 +61,12 @@ class Article {
     }
 
     article_presentation_html(){
-        this.article_element = document.createElement("div")
+        this.article_element = document.createElement("article")
+        this.article_element.classList.add("quicksand")
         this.article_element.innerHTML = `
-            <h3>${this.title}</h3>
-            <div>${this.pageid} </div>
-            <div>${this.size} </div>
-            <div>${this.snippet} </div>
-            <div>${this.timestamp} </div>
-            <div>${this.wordcount} </div>
+            <span class="article__titre">${this.title}</span>
+            <a class="article__link" href="https://en.wikipedia.org/?curid=${this.pageid}">https://en.wikipedia.org/?curid=${this.pageid}</a>
+            <span class="article__resume">${this.snippet} </span>
         `
     }
 }
@@ -135,8 +133,8 @@ __webpack_require__.r(__webpack_exports__);
 const img_logo = document.createElement("img");
 img_logo.src = _assets_logo_png__WEBPACK_IMPORTED_MODULE_0__;
 img_logo.alt = "logo"
-img_logo.width = "100";
-img_logo.height = "100";
+img_logo.width = "150";
+img_logo.height = "150";
 
 
 
@@ -255,6 +253,7 @@ const search = document.querySelector(".form__search")
 
 search.addEventListener("keydown", async (event) => {
     if (event.key === "Enter" && event.value != ""){
+        initialisationResults()
         const isWaiting = new _loader_js__WEBPACK_IMPORTED_MODULE_2__.Loader
         isWaiting.charge()
         showResults(event)
@@ -268,12 +267,17 @@ search.addEventListener("keydown", async (event) => {
 
 async function showResults(event){
     const results = await (0,_apiWiki_js__WEBPACK_IMPORTED_MODULE_1__.searchResults)(event.target.value)
-    const article_element = document.querySelector("article")
+    const article_element = document.querySelector(".results")
     for (const result of results){
         const article = new _article_js__WEBPACK_IMPORTED_MODULE_3__.Article(result)
         article_element.appendChild(article.article_element)
         
     }
+}
+
+function initialisationResults(){
+    const results = document.querySelector(".results")
+    results.innerHTML = ""
 }
 
 /////////////
