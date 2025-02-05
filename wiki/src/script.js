@@ -1,21 +1,52 @@
 import {img_logo} from "./logo.js";
 import {searchResults} from "./apiWiki.js"
+import {Loader} from "./loader.js"
+import {Article} from "./article.js"
 
-// exercise to insert an asset
-const logo = document.querySelector(".logo");
-logo.appendChild(img_logo);
+/////////////
+//  code dynamique 
+////////////
 
-// cancel refresh submit
+// cancel submit
 const form = document.querySelector("form")
 form.addEventListener("submit", (event) => {
     event.preventDefault()
 })
 
 // "Enter" action on input
-const search = document.querySelector(".search")
+const search = document.querySelector(".form__search")
+
 search.addEventListener("keydown", async (event) => {
-    if (event.key === "Enter"){
-        const results = await searchResults(event.target.value)
-        console.log(results)
+    if (event.key === "Enter" && event.value != ""){
+        initialisationResults()
+        const isWaiting = new Loader
+        isWaiting.charge()
+        showResults(event)
+        isWaiting.uncharge()
     }
 })
+
+/////////////
+//  fonctions 
+////////////
+
+async function showResults(event){
+    const results = await searchResults(event.target.value)
+    const article_element = document.querySelector(".results")
+    for (const result of results){
+        const article = new Article(result)
+        article_element.appendChild(article.article_element)
+        
+    }
+}
+
+function initialisationResults(){
+    const results = document.querySelector(".results")
+    results.innerHTML = ""
+}
+
+/////////////
+//  code statique 
+////////////
+const logo = document.querySelector(".logo");
+logo.appendChild(img_logo);

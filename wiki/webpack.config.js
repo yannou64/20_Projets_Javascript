@@ -4,6 +4,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"), // ✅ Vérifier la résolution correcte
     filename: "bundle.js",
+    publicPath: "/",
   },
   mode: "development",
   watch: true,
@@ -24,4 +25,5 @@ module.exports = {
       },
     ],
   },
+  devtool: "source-map",
 };

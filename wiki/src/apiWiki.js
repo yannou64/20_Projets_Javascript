@@ -1,4 +1,7 @@
-async function searchResults(toSearch){
+import { loader }  from "./loader.js"
+
+
+function searchResults(toSearch){
   try {
     return resultatToSend(toSearch)
   } 

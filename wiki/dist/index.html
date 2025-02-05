@@ -6,22 +6,23 @@
     <title>wiki</title>
     <link rel="stylesheet" href="style.css" />
     <script src="bundle.js" defer></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
   <body>
-    <main class="container">
+    <main>
       <header>
         <div class="logo"></div>
-        <h1>Recherche <span>Wikipédia</span></h1>
+        <div class="titre">Recherche <span class="roboto">Wikipédia</span></div>
         <form>
-          <input class="search" type="text" placeholder="Votre recherche" />
+          <input class="form__search" type="text" placeholder="Votre recherche" />
+          <div class="form__loader"></div>
         </form>
       </header>
-      <section class="results">
-        <article>
-          <a class="article__title" href=""></a>
-          <p class="article__link"></p>
-          <p class="article__resume"></p>
-        </article>
+      <section>
+        <div class="results"></div>
       </section>
     </main>
   </body>

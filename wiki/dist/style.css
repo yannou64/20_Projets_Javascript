@@ -1,3 +1,71 @@
+body {
+  background-color: #F1F1F1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+main {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main header {
+  text-align: center;
+  width: 100%;
+}
+main header .logo {
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+main header .titre {
+  font-size: 2em;
+  letter-spacing: 3px;
+}
+main header form .form__search {
+  width: 90%;
+  height: 35px;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0px 3px 5px #bebebe;
+  padding: 0px 10px;
+}
+main section {
+  width: 75%;
+}
+main section .results article {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding-top: 25px;
+}
+main section .results article .article__titre {
+  color: #3b3de6;
+  text-decoration: underline;
+  font-weight: 700;
+  font-size: 1.3em;
+}
+main section .results article .article__link {
+  color: #586a49;
+}
+main section .results article .article__resume {
+  color: gray;
+}
+
+.quicksand {
+  font-family: "Quicksand", serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.roboto {
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
 
 /*# sourceMappingURL=style.css.map */
