@@ -133,8 +133,7 @@ __webpack_require__.r(__webpack_exports__);
 const img_logo = document.createElement("img");
 img_logo.src = _assets_logo_png__WEBPACK_IMPORTED_MODULE_0__;
 img_logo.alt = "logo"
-img_logo.width = "150";
-img_logo.height = "150";
+img_logo.style = "width: clamp(20px, 100vw, 250px)"
 
 
 
