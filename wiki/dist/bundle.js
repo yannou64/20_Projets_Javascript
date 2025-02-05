@@ -1,11 +1,3 @@
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
@@ -16,7 +8,29 @@
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   searchResults: () => (/* binding */ searchResults)\n/* harmony export */ });\nasync function searchResults(toSearch){\n  try {\n    return resultatToSend(toSearch)\n  } \n  catch (error) {\n    console.log(\"erreur ! = \" + error);\n  }\n};\n\nasync function resultatToSend(toSearch){\n    const response = await fetch(\n        `https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=20&srsearch=${toSearch}`\n    );\n    const data = await response.json()\n    return data.query.search\n}\n\n\n\n\n//# sourceURL=webpack://wiki/./src/apiWiki.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   searchResults: () => (/* binding */ searchResults)
+/* harmony export */ });
+async function searchResults(toSearch){
+  try {
+    return resultatToSend(toSearch)
+  } 
+  catch (error) {
+    console.log("erreur ! = " + error);
+  }
+};
+
+async function resultatToSend(toSearch){
+    const response = await fetch(
+        `https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=20&srsearch=${toSearch}`
+    );
+    const data = await response.json()
+    return data.query.search
+}
+
+
+
 
 /***/ }),
 
@@ -26,17 +40,21 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   img_logo: () => (/* binding */ img_logo)\n/* harmony export */ });\n/* harmony import */ var _assets_logo_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/logo.png */ \"./src/assets/logo.png\");\n\n\nconst img_logo = document.createElement(\"img\");\nimg_logo.src = _assets_logo_png__WEBPACK_IMPORTED_MODULE_0__;\nimg_logo.alt = \"logo\"\nimg_logo.width = \"100\";\nimg_logo.height = \"100\";\n\n\n\n\n//# sourceURL=webpack://wiki/./src/logo.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   img_logo: () => (/* binding */ img_logo)
+/* harmony export */ });
+/* harmony import */ var _assets_logo_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/logo.png */ "./src/assets/logo.png");
 
-/***/ }),
 
-/***/ "./src/script.js":
-/*!***********************!*\
-  !*** ./src/script.js ***!
-  \***********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+const img_logo = document.createElement("img");
+img_logo.src = _assets_logo_png__WEBPACK_IMPORTED_MODULE_0__;
+img_logo.alt = "logo"
+img_logo.width = "100";
+img_logo.height = "100";
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _logo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logo.js */ \"./src/logo.js\");\n/* harmony import */ var _apiWiki_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./apiWiki.js */ \"./src/apiWiki.js\");\n\n\n\n// exercise to insert an asset\nconst logo = document.querySelector(\".logo\");\nlogo.appendChild(_logo_js__WEBPACK_IMPORTED_MODULE_0__.img_logo);\n\n// cancel refresh submit\nconst form = document.querySelector(\"form\")\nform.addEventListener(\"submit\", (event) => {\n    event.preventDefault()\n})\n\n// \"Enter\" action on input\nconst search = document.querySelector(\".search\")\nsearch.addEventListener(\"keydown\", async (event) => {\n    if (event.key === \"Enter\"){\n        const results = await (0,_apiWiki_js__WEBPACK_IMPORTED_MODULE_1__.searchResults)(event.target.value)\n        console.log(results)\n    }\n})\n\n//# sourceURL=webpack://wiki/./src/script.js?");
+
+
 
 /***/ }),
 
@@ -46,7 +64,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _log
   \*****************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("module.exports = __webpack_require__.p + \"a77c82699668181e61ef.png\";\n\n//# sourceURL=webpack://wiki/./src/assets/logo.png?");
+module.exports = __webpack_require__.p + "a77c82699668181e61ef.png";
 
 /***/ })
 
@@ -89,18 +107,6 @@ eval("module.exports = __webpack_require__.p + \"a77c82699668181e61ef.png\";\n\n
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -119,33 +125,42 @@ eval("module.exports = __webpack_require__.p + \"a77c82699668181e61ef.png\";\n\n
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		var scriptUrl;
-/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
-/******/ 		var document = __webpack_require__.g.document;
-/******/ 		if (!scriptUrl && document) {
-/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
-/******/ 				scriptUrl = document.currentScript.src;
-/******/ 			if (!scriptUrl) {
-/******/ 				var scripts = document.getElementsByTagName("script");
-/******/ 				if(scripts.length) {
-/******/ 					var i = scripts.length - 1;
-/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
-/******/ 				}
-/******/ 			}
-/******/ 		}
-/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
-/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
-/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
-/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
-/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 		__webpack_require__.p = "/";
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/script.js");
-/******/ 	
+var __webpack_exports__ = {};
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
+(() => {
+/*!***********************!*\
+  !*** ./src/script.js ***!
+  \***********************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _logo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logo.js */ "./src/logo.js");
+/* harmony import */ var _apiWiki_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./apiWiki.js */ "./src/apiWiki.js");
+
+
+
+// exercise to insert an asset
+const logo = document.querySelector(".logo");
+logo.appendChild(_logo_js__WEBPACK_IMPORTED_MODULE_0__.img_logo);
+
+// cancel refresh submit
+const form = document.querySelector("form")
+form.addEventListener("submit", (event) => {
+    event.preventDefault()
+})
+
+// "Enter" action on input
+const search = document.querySelector(".search")
+search.addEventListener("keydown", async (event) => {
+    if (event.key === "Enter"){
+        const results = await (0,_apiWiki_js__WEBPACK_IMPORTED_MODULE_1__.searchResults)(event.target.value)
+        console.log(results)
+    }
+})
+})();
+
 /******/ })()
 ;
+//# sourceMappingURL=bundle.js.map
