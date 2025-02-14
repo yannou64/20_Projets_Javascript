@@ -1,10 +1,12 @@
+
 /////////////
 //  import 
 ////////////    
+import './style.scss'
 import {Cookie} from "./components/cookies/Cookie.js"
-
+import {image} from "./components/cookies/LogoCookie.js"
 /////////////
-//  preventDefaut 
+//  preventDefaut + assets
 ////////////
 
 const form = document.querySelector("form")
@@ -12,6 +14,7 @@ form.addEventListener('submit', (event) => {
     event.preventDefault()
 })
 
+const displayLogo = document.querySelector(".display-logo").appendChild(image)
 /////////////
 //  Action button .Create
 ////////////
@@ -21,10 +24,30 @@ buttonCreate.addEventListener('click', createCookie)
 function createCookie(){
     const name = document.querySelector("#name").value
     const value = document.querySelector('#value').value
-    const cookie = new Cookie(name, value)
-    cookie.setCookie()
+    if (checkInput(name, value)){
+        const cookie = new Cookie(name, value)
+        initCookiesBoard()
+        cookie.setCookie()
+    }
+    initInputs()
 }
 
+
+function checkInput(name, value) {
+    if(!name?.trim() || !value?.trim()){
+        console.log("error d'input")
+        return false
+    }
+    return true
+}
+
+
+function initInputs(){
+    const inputs = document.querySelectorAll("input")
+    for (let input of inputs){
+        input.value = ""
+    }
+}
 /////////////
 //  Action button .Display 
 ////////////
@@ -44,7 +67,7 @@ function display(cookies){
         nameCookie = eraseSpace(nameCookie)
         const valueCookie = cookie.split("=")[1]
         const element = document.createElement("div")
-        element.classList.add("displayBloc")
+        element.classList.add("cookiesBoard__displayBloc")
         element.innerHTML = `
             <div>Nom : ${nameCookie}</div>
             <div>Valeur : ${valueCookie}</div>

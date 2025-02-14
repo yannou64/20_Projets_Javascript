@@ -4,17 +4,22 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js"
+        filename: "bundle.js",
+        publicPath: 'auto'
     },
     mode: "development",
     devServer: {
         static: {
-          directory: "./dist",
+          directory: path.resolve(__dirname, "dist"),
         },
         open: true,
       },
     module: {
         rules: [
+            {
+                test: /\.(png|jpe?g|gif|svg)$/,
+                type: "asset"
+            },
             {
                 test: /\.css$/,
                 use: [
