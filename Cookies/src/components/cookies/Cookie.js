@@ -79,7 +79,6 @@ class Cookie {
       indicatorSpace.classList.remove("indicatorSpace--supp")
     }, 2000)
   }
-
 }
 
 export { Cookie };

@@ -89,7 +89,7 @@ form {
     span {
         font-weight: 600;
     }
-    
+
     .supp {
       height: 12px;
       width: 12px;
@@ -109,18 +109,33 @@ form {
   }
 }
 
-.indicatorSpace {
-  display: none;
-  &--create {
-    background-color: blue;
-  }
-  &--modif {
-    background-color: green;
-  }
-  &--supp {
-    background-color: red;
-  }
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 2%;
+    display: flex;
+    justify-content: flex-end;
+    .indicatorSpace {
+        margin-right: 10px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        padding: 0px 10px;
+        font-weight: 400;
+        color: white;
+        border-radius: 5px;
+        &--create {
+          background-color: #71B6EE;
+        }
+        &--modif {
+          background-color: #C5EAAC;
+        }
+        &--supp {
+          background-color: #F39176;
+        }
+      }
 }
+
 
 // fonts
 
