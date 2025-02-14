@@ -2,22 +2,26 @@
 //  import
 ////////////
 import "./style.scss";
-import { Cookie } from "./components/cookies/Cookie.js";
+import { Cookie } from "./components/cookies/cookie.js";
 import { image } from "./components/cookies/LogoCookie.js";
-/////////////
-//  preventDefaut + assets
-////////////
 
+/////////////
+//  preventDefaut
+////////////
 const form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 });
 
+/////////////
+//  assets
+////////////
 const displayLogo = document.querySelector(".display-logo").appendChild(image);
+
 /////////////
 //  Action button .Create
 ////////////
-const buttonCreate = document.querySelector(".create");
+const buttonCreate = document.querySelector(".btn__create");
 buttonCreate.addEventListener("click", createCookie);
 
 function createCookie() {
@@ -25,10 +29,10 @@ function createCookie() {
   const value = document.querySelector("#value").value;
   if (checkInput(name, value)) {
     const cookie = new Cookie(name, value);
-    initdisplayCookies();
     cookie.setCookie();
   }
   initInputs();
+  init_displayCookieBoard();
 }
 
 function checkInput(name, value) {
@@ -45,50 +49,67 @@ function initInputs() {
     input.value = "";
   }
 }
+
 /////////////
 //  Action button .Display
 ////////////
-const buttonDisplay = document.querySelector(".display");
-buttonDisplay.addEventListener("click", displayCookies);
+const button_Display = document.querySelector(".btn__display");
+button_Display.addEventListener("click", displayCookieBoard);
 
-function displayCookies() {
-  const cookies = Cookie.getCookies();
-  display(cookies);
+function displayCookieBoard() {
+    init_displayCookieBoard();
+    const displayCookieBoard = document.querySelector(".displayCookieBoard");
+    const cookies = Cookie.getCookies();
+    checkCookiesEmpty(cookies)
+    createCardsCookie(cookies, displayCookieBoard)
 }
 
-function display(cookies) {
-  initdisplayCookies();
-  const displayCookies = document.querySelector(".displayCookies");
-  for (let cookie of cookies) {
-    let nameCookie = cookie.split("=")[0];
-    nameCookie = eraseSpace(nameCookie);
-    const valueCookie = cookie.split("=")[1];
+function init_displayCookieBoard() {
+    const displayCookieBoard = document.querySelector(".displayCookieBoard");
+    if (displayCookieBoard.innerHTML != null) {
+      displayCookieBoard.innerHTML = "";
+    }
+  }
+
+function checkCookiesEmpty(cookies){
+    if (!cookies[0].trim()){
+        return;
+    }
+}
+
+function createCardsCookie(cookies, board){
+    for (let cookie of cookies) {
+        const nameCookie = cookie.split("=")[0].trim();
+        const valueCookie = cookie.split("=")[1].trim();
+        const card = display_TheCookie(nameCookie, valueCookie);
+        board.appendChild(card);
+    }
+    addSuppListeners()
+}
+
+function display_TheCookie(name, value) {
     const element = document.createElement("div");
-    element.classList.add("displayCookies__displayBloc");
+    element.classList.add("displayCookieBoard__displayBloc");
     element.innerHTML = `
-            <div><span>Nom :</span> ${nameCookie}</div>
-            <div><span>Valeur :</span> ${valueCookie}</div>
-            <div class="supp" id="${nameCookie}">x</div>
+            <div><span>Nom :</span> ${name}</div>
+            <div><span>Valeur :</span> ${value}</div>
+            <div class="supp" id="${name}">x</div>
         `;
-    displayCookies.appendChild(element);
-  }
-  const elementsSupp = document.querySelectorAll(".supp");
-  for (let element of elementsSupp) {
-    element.addEventListener("click", suppCookie);
-  }
-}
-
-function eraseSpace(element) {
-  while (element.charAt(0) == " ") {
-    element = element.substring(1);
-  }
-  return element;
+    return element;
 }
 
 /////////////
 //  Action element .supp
 ////////////
-function suppCookie(event) {
+function addSuppListeners(){
+    const elementsSupp = document.querySelectorAll(".supp");
+    console.log(elementsSupp)
+    for (let element of elementsSupp) {
+    element.addEventListener("click", supp_Cookie);
+    }
+}
+
+function supp_Cookie(event) {
   Cookie.suppCookie(event.target.id);
   suppCookieDisplay(event.target.id);
 }
@@ -96,11 +117,4 @@ function suppCookie(event) {
 function suppCookieDisplay(id) {
   const element = document.getElementById(id).parentElement;
   element.remove();
-}
-
-function initdisplayCookies() {
-  const displayCookies = document.querySelector(".displayCookies");
-  if (displayCookies.innerHTML != null) {
-    displayCookies.innerHTML = "";
-  }
 }
