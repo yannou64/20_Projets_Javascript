@@ -69,9 +69,9 @@ function display(cookies){
         const element = document.createElement("div")
         element.classList.add("cookiesBoard__displayBloc")
         element.innerHTML = `
-            <div>Nom : ${nameCookie}</div>
-            <div>Valeur : ${valueCookie}</div>
-            <div class="supp" id="${nameCookie}">supp</div>
+            <div><span>Nom :</span> ${nameCookie}</div>
+            <div><span>Valeur :</span> ${valueCookie}</div>
+            <div class="supp" id="${nameCookie}">x</div>
         `
         cookiesBoard.appendChild(element)
     }
