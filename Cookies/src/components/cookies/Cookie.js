@@ -42,41 +42,41 @@ class Cookie {
   }
 
   indicatorCookieCreate () {
-    const indicatorSpace = document.querySelector(".indicatorSpace")
-    indicatorSpace.classList.add("indicatorSpace--create")
-    indicatorSpace.innerHTML = `
+    const indicatorCookieAction = document.querySelector(".indicatorCookieAction")
+    indicatorCookieAction.classList.add("indicatorCookieAction--create")
+    indicatorCookieAction.innerHTML = `
       cookie: ${this.name} a été créé
     `
-    indicatorSpace.style.display = "flex"
+    indicatorCookieAction.style.display = "flex"
     setTimeout(() => {
-      indicatorSpace.style.display = "none"
-      indicatorSpace.classList.remove("indicatorSpace--create")
+      indicatorCookieAction.style.display = "none"
+      indicatorCookieAction.classList.remove("indicatorCookieAction--create")
     }, 2000)
   }
 
   indicatorCookieModif (){
-    const indicatorSpace = document.querySelector(".indicatorSpace")
-    indicatorSpace.classList.add("indicatorSpace--modif")
-    indicatorSpace.innerHTML = `
+    const indicatorCookieAction = document.querySelector(".indicatorCookieAction")
+    indicatorCookieAction.classList.add("indicatorCookieAction--modif")
+    indicatorCookieAction.innerHTML = `
       cookie: ${this.name} a été modifié
     `
-    indicatorSpace.style.display = "flex"
+    indicatorCookieAction.style.display = "flex"
     setTimeout(() => {
-      indicatorSpace.style.display = "none"
-      indicatorSpace.classList.remove("indicatorSpace--modif")
+      indicatorCookieAction.style.display = "none"
+      indicatorCookieAction.classList.remove("indicatorCookieAction--modif")
     }, 2000)
   }
 
   static indicatorCookieSupp(name) {
-    const indicatorSpace = document.querySelector(".indicatorSpace")
-    indicatorSpace.classList.add("indicatorSpace--supp")
-    indicatorSpace.innerHTML = `
+    const indicatorCookieAction = document.querySelector(".indicatorCookieAction")
+    indicatorCookieAction.classList.add("indicatorCookieAction--supp")
+    indicatorCookieAction.innerHTML = `
       cookie: ${name} a été supprimé
     `
-    indicatorSpace.style.display = "flex"
+    indicatorCookieAction.style.display = "flex"
     setTimeout(() => {
-      indicatorSpace.style.display = "none"
-      indicatorSpace.classList.remove("indicatorSpace--supp")
+      indicatorCookieAction.style.display = "none"
+      indicatorCookieAction.classList.remove("indicatorCookieAction--supp")
     }, 2000)
   }
 }
