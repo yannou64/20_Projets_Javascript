@@ -57,56 +57,58 @@ const button_Display = document.querySelector(".btn__display");
 button_Display.addEventListener("click", displayCookieBoard);
 
 function displayCookieBoard() {
-    init_displayCookieBoard();
-    const displayCookieBoard = document.querySelector(".displayCookieBoard");
-    const cookies = Cookie.getCookies();
-    checkCookiesEmpty(cookies)
-    createCardsCookie(cookies, displayCookieBoard)
+  init_displayCookieBoard();
+  const displayCookieBoard = document.querySelector(".displayCookieBoard");
+  const cookies = Cookie.getCookies();
+  if (!checkCookiesEmpty(cookies)){
+    createCardsCookie(cookies, displayCookieBoard);
+  };
 }
 
 function init_displayCookieBoard() {
-    const displayCookieBoard = document.querySelector(".displayCookieBoard");
-    if (displayCookieBoard.innerHTML != null) {
-      displayCookieBoard.innerHTML = "";
-    }
+  const displayCookieBoard = document.querySelector(".displayCookieBoard");
+  if (displayCookieBoard.innerHTML != null) {
+    displayCookieBoard.innerHTML = "";
   }
-
-function checkCookiesEmpty(cookies){
-    if (!cookies[0].trim()){
-        return;
-    }
 }
 
-function createCardsCookie(cookies, board){
-    for (let cookie of cookies) {
-        const nameCookie = cookie.split("=")[0].trim();
-        const valueCookie = cookie.split("=")[1].trim();
-        const card = display_TheCookie(nameCookie, valueCookie);
-        board.appendChild(card);
-    }
-    addSuppListeners()
+function checkCookiesEmpty(cookies) {
+  if (!cookies[0].trim()) {
+    return true;
+  }
+  return false
+}
+
+function createCardsCookie(cookies, board) {
+  for (let cookie of cookies) {
+    const nameCookie = cookie.split("=")[0].trim();
+    const valueCookie = cookie.split("=")[1].trim();
+    const card = display_TheCookie(nameCookie, valueCookie);
+    board.appendChild(card);
+  }
+  addSuppListeners();
 }
 
 function display_TheCookie(name, value) {
-    const element = document.createElement("div");
-    element.classList.add("displayCookieBoard__displayBloc");
-    element.innerHTML = `
+  const element = document.createElement("div");
+  element.classList.add("displayCookieBoard__displayBloc");
+  element.innerHTML = `
             <div><span>Nom :</span> ${name}</div>
             <div><span>Valeur :</span> ${value}</div>
             <div class="supp" id="${name}">x</div>
         `;
-    return element;
+  return element;
 }
 
 /////////////
 //  Action element .supp
 ////////////
-function addSuppListeners(){
-    const elementsSupp = document.querySelectorAll(".supp");
-    console.log(elementsSupp)
-    for (let element of elementsSupp) {
+function addSuppListeners() {
+  const elementsSupp = document.querySelectorAll(".supp");
+  console.log(elementsSupp);
+  for (let element of elementsSupp) {
     element.addEventListener("click", supp_Cookie);
-    }
+  }
 }
 
 function supp_Cookie(event) {
