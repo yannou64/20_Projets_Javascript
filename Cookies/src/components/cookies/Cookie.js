@@ -29,7 +29,7 @@ class Cookie {
     setTimeout(() => {
       indicatorCookieAction.style.display = "none";
       indicatorCookieAction.classList.remove("indicatorCookieAction--create");
-    }, this.indicatorDelay );
+    }, this.indicatorDelay);
   }
 
   indicatorCookieModif() {
@@ -44,7 +44,7 @@ class Cookie {
     setTimeout(() => {
       indicatorCookieAction.style.display = "none";
       indicatorCookieAction.classList.remove("indicatorCookieAction--modif");
-    }, this.indicatorDelay );
+    }, this.indicatorDelay);
   }
 
   static checkCookie(toFind) {
@@ -65,9 +65,12 @@ class Cookie {
   }
 
   static suppCookie(name) {
+    console.log("test2");
     const cookie = `${name}=; expires=01 Janv 1970 00:00:00 UTC; path=/;`;
     document.cookie = cookie;
+    console.log(Cookie.checkCookie(name));
     if (!Cookie.checkCookie(name)) {
+      console.log("on passe le if 6");
       Cookie.indicatorCookieSupp(name);
     }
   }
@@ -83,7 +86,7 @@ class Cookie {
     setTimeout(() => {
       indicatorCookieAction.style.display = "none";
       indicatorCookieAction.classList.remove("indicatorCookieAction--supp");
-    }, this.indicatorDelay );
+    }, this.indicatorDelay);
   }
 }
 
