@@ -15,7 +15,8 @@ module.exports = {
     },
     open: true,
     hot: true, // Active le Hot Module Replacement (HMR)
-    watchFiles: ["src/**/*"],
+    liveReload: true, // Active le rechargement de la page si HMR échoue
+    watchFiles: ["src/**/*"], // Assure-toi que les fichiers sont bien surveillés
   },
   module: {
     rules: [

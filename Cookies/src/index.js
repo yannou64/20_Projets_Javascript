@@ -60,9 +60,9 @@ function displayCookieBoard() {
   init_displayCookieBoard();
   const displayCookieBoard = document.querySelector(".displayCookieBoard");
   const cookies = Cookie.getCookies();
-  if (!checkCookiesEmpty(cookies)){
+  if (!checkCookiesEmpty(cookies)) {
     createCardsCookie(cookies, displayCookieBoard);
-  };
+  }
 }
 
 function init_displayCookieBoard() {
@@ -76,7 +76,7 @@ function checkCookiesEmpty(cookies) {
   if (!cookies[0].trim()) {
     return true;
   }
-  return false
+  return false;
 }
 
 function createCardsCookie(cookies, board) {

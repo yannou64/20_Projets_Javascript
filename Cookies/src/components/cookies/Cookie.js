@@ -70,8 +70,9 @@ class Cookie {
     document.cookie = cookie;
     console.log(Cookie.checkCookie(name));
     if (!Cookie.checkCookie(name)) {
-      console.log("on passe le if 6");
+      console.log("on passe le if 25");
       Cookie.indicatorCookieSupp(name);
+      console.log("test4");
     }
   }
   static indicatorCookieSupp(name) {
