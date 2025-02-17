@@ -1,51 +1,35 @@
 class Cookie {
-  constructor(name, value) {
-    this.name = name;
-    this.value = value;
-    
-  }
   static delay = "Thu, 18 Mar 2025 12:00:00 UTC";
   static path = "/";
   static indicatorDelay = 2000;
 
+  constructor(name, value) {
+    this.name = name;
+    this.value = value;
+  }
+
   setCookie() {
     const cookie = `${this.name}=${this.value}; expires=${Cookie.delay}; path=${Cookie.path};`;
     if (Cookie.checkCookie(this.name)) {
-      this.indicatorCookieModif();
+      this.indicator("modif");
     } else {
-      this.indicatorCookieCreate();
+      this.indicator("create");
     }
     document.cookie = cookie;
   }
 
-  indicatorCookieCreate() {
+  indicator(action){
     const indicatorCookieAction = document.querySelector(
       ".indicatorCookieAction"
     );
-    indicatorCookieAction.classList.add("indicatorCookieAction--create");
+    indicatorCookieAction.classList.add(`indicatorCookieAction--${action}`);
     indicatorCookieAction.innerHTML = `
-      cookie: ${this.name} a été créé
+      cookie: ${this.name} a été ${action}
     `;
     indicatorCookieAction.style.display = "flex";
-    console.log(indicatorCookieAction);
     setTimeout(() => {
       indicatorCookieAction.style.display = "none";
       indicatorCookieAction.classList.remove("indicatorCookieAction--create");
-    }, Cookie.indicatorDelay);
-  }
-
-  indicatorCookieModif() {
-    const indicatorCookieAction = document.querySelector(
-      ".indicatorCookieAction"
-    );
-    indicatorCookieAction.classList.add("indicatorCookieAction--modif");
-    indicatorCookieAction.innerHTML = `
-      cookie: ${this.name} a été modifié
-    `;
-    indicatorCookieAction.style.display = "flex";
-    setTimeout(() => {
-      indicatorCookieAction.style.display = "none";
-      indicatorCookieAction.classList.remove("indicatorCookieAction--modif");
     }, Cookie.indicatorDelay);
   }
 

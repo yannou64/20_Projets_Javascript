@@ -105,7 +105,6 @@ function display_TheCookie(name, value) {
 ////////////
 function addSuppListeners() {
   const elementsSupp = document.querySelectorAll(".supp");
-  console.log(elementsSupp);
   for (let element of elementsSupp) {
     element.addEventListener("click", supp_Cookie);
   }
