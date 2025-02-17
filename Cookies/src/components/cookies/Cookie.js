@@ -10,11 +10,7 @@ class Cookie {
 
   setCookie() {
     const cookie = `${this.name}=${this.value}; expires=${Cookie.delay}; path=${Cookie.path};`;
-    if (Cookie.checkCookie(this.name)) {
-      this.indicator("modif");
-    } else {
-      this.indicator("create");
-    }
+    this.#indicatorActionToUser("set");
     document.cookie = cookie;
   }
 
@@ -22,22 +18,46 @@ class Cookie {
     const cookie = `${this.name}=; expires=01 Janv 1970 00:00:00 UTC; path=/;`;
     document.cookie = cookie;
     if (!Cookie.checkCookie(this.name)) {
-      this.indicator("supp");
+      this.#indicatorActionToUser("supp");
     }
   }
 
-  indicator(action) {
-    const indicatorCookieAction = document.querySelector(
-      ".indicatorCookieAction"
-    );
-    indicatorCookieAction.classList.add(`indicatorCookieAction--${action}`);
-    indicatorCookieAction.innerHTML = `
+  #indicatorActionToUser(action) {
+    switch (action) {
+      case "supp":
+        this.#indicator("supp");
+        break;
+      case "set":
+        if (Cookie.checkCookie(this.name)) {
+          this.#indicator("modif");
+        } else {
+          this.#indicator("create");
+        }
+        break;
+      default:
+        console.log("error with value of indicatorActionToUser in cookie.js");
+    }
+  }
+
+  #indicator(action) {
+    const indicator = this.#displayIndicator(action);
+    this.#suppIndicatorAfterDelay(action, indicator);
+  }
+
+  #displayIndicator(action) {
+    const indicator = document.querySelector(".indicator");
+    indicator.classList.add(`indicator--${action}`);
+    indicator.innerHTML = `
       cookie: ${this.name} a été ${action}
     `;
-    indicatorCookieAction.style.display = "flex";
+    indicator.style.display = "flex";
+    return indicator;
+  }
+
+  #suppIndicatorAfterDelay(action, indicator) {
     setTimeout(() => {
-      indicatorCookieAction.style.display = "none";
-      indicatorCookieAction.classList.remove("indicatorCookieAction--create");
+      indicator.style.display = "none";
+      indicator.classList.remove(`indicator--${action}`);
     }, Cookie.indicatorDelay);
   }
 
