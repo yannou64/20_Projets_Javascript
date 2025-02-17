@@ -18,7 +18,15 @@ class Cookie {
     document.cookie = cookie;
   }
 
-  indicator(action){
+  suppCookie() {
+    const cookie = `${this.name}=; expires=01 Janv 1970 00:00:00 UTC; path=/;`;
+    document.cookie = cookie;
+    if (!Cookie.checkCookie(this.name)) {
+      this.indicator("supp");
+    }
+  }
+
+  indicator(action) {
     const indicatorCookieAction = document.querySelector(
       ".indicatorCookieAction"
     );
@@ -48,29 +56,6 @@ class Cookie {
     let cookies = decodeURIComponent(document.cookie);
     cookies = cookies.split(";");
     return cookies;
-  }
-
-  static suppCookie(name) {
-    const cookie = `${name}=; expires=01 Janv 1970 00:00:00 UTC; path=/;`;
-    document.cookie = cookie;
-    if (!Cookie.checkCookie(name)) {
-      Cookie.indicatorCookieSupp(name);
-    }
-  }
-  static indicatorCookieSupp(name) {
-    const indicatorCookieAction = document.querySelector(
-      ".indicatorCookieAction"
-    );
-    indicatorCookieAction.classList.add("indicatorCookieAction--supp");
-    indicatorCookieAction.innerHTML = `
-      cookie: ${name} a été supprimé
-    `;
-    indicatorCookieAction.style.display = "flex";
-    console.log(indicatorCookieAction);
-    setTimeout(() => {
-      indicatorCookieAction.style.display = "none";
-      indicatorCookieAction.classList.remove("indicatorCookieAction--supp");
-    }, Cookie.indicatorDelay);
   }
 }
 

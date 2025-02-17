@@ -111,7 +111,9 @@ function addSuppListeners() {
 }
 
 function supp_Cookie(event) {
-  Cookie.suppCookie(event.target.id);
+  const cookie = new Cookie(event.target.id, "")
+  console.log(cookie)
+  cookie.suppCookie(event.target.id);
   suppCookieDisplay(event.target.id);
 }
 
